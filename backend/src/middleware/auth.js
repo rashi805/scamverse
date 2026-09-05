@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
+const User = require('../models/User');
 
-function requireAuth(req, res, next) {
+async function requireAuth(req, res, next) {
   const header = req.headers.authorization || '';
   const token = header.startsWith('Bearer ') ? header.slice(7) : null;
 
@@ -11,7 +12,9 @@ function requireAuth(req, res, next) {
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
     req.userId = payload.userId;
-    req.userRole = payload.role;
+    // Always query current role from database to support real-time role changes
+    const user = await User.findById(payload.userId).select('role');
+    req.userRole = user ? user.role : payload.role;
     next();
   } catch (err) {
     return res.status(401).json({ message: 'Invalid or expired token' });
@@ -28,14 +31,15 @@ function requireRole(...roles) {
 }
 
 // Allows guests through with no user attached, but attaches user if a valid token is present
-function optionalAuth(req, res, next) {
+async function optionalAuth(req, res, next) {
   const header = req.headers.authorization || '';
   const token = header.startsWith('Bearer ') ? header.slice(7) : null;
   if (!token) return next();
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
     req.userId = payload.userId;
-    req.userRole = payload.role;
+    const user = await User.findById(payload.userId).select('role');
+    req.userRole = user ? user.role : payload.role;
   } catch (err) {
     // ignore invalid token for optional auth
   }
