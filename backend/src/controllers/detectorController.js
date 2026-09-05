@@ -14,7 +14,7 @@ async function checkUrl(req, res, next) {
       return res.status(400).json({ message: 'URL too long' });
     }
 
-    const aiResult = await detectGemini(url.trim());
+    const aiResult = await detectGemini(url.trim(), 'URL');
     if (aiResult) {
       return res.json({ ...aiResult, disclaimer: DISCLAIMER });
     }
@@ -36,7 +36,7 @@ async function checkMessage(req, res, next) {
       return res.status(400).json({ message: 'Message too long (max 5000 characters)' });
     }
 
-    const aiResult = await detectGemini(message);
+    const aiResult = await detectGemini(message, 'Message');
     if (aiResult) {
       return res.json({ ...aiResult, disclaimer: DISCLAIMER });
     }

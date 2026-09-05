@@ -57,14 +57,24 @@ export default function UrlDetector() {
       {error && <p className="text-danger text-sm mb-4">{error}</p>}
 
       {result && (
-        <div className={`border rounded-2xl p-6 ${riskStyles[result.riskLevel]}`}>
+        <div className={`border rounded-2xl p-6 ${riskStyles[result.riskLevel] || 'border-border bg-surface'}`}>
           <div className="flex items-baseline justify-between mb-4">
             <span className="text-2xl font-extrabold">{result.riskLevel}</span>
-            <span className="text-lg">{t('url_risk_score')}: {result.riskScore}/100</span>
+            <span className="text-lg font-bold">{t('url_risk_score')}: {result.riskScore}/100</span>
           </div>
-          <ul className="list-disc list-inside space-y-1 text-text">
-            {result.reasons.map((r, i) => <li key={i}>{r}</li>)}
-          </ul>
+          {result.reasons && result.reasons.length > 0 && (
+            <ul className="list-disc list-inside space-y-1 text-text">
+              {result.reasons.map((r, i) => <li key={i}>{r}</li>)}
+            </ul>
+          )}
+          {result.suggestions && result.suggestions.length > 0 && (
+            <div className="mt-4 pt-3 border-t border-border/50">
+              <p className="text-xs font-semibold text-textMuted uppercase tracking-wider mb-1">Safety Recommendations</p>
+              <ul className="list-disc list-inside space-y-1 text-xs text-text">
+                {result.suggestions.map((s, i) => <li key={i}>{s}</li>)}
+              </ul>
+            </div>
+          )}
           <p className="text-xs text-textMuted mt-4">{result.disclaimer}</p>
         </div>
       )}
