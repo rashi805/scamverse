@@ -1,0 +1,77 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/kiransureshjelugadekar/Downloads/scamverse360/blockchain/contracts/ScamCertificateSBT.sol": {
+      "lastModificationDate": 1788414544776,
+      "contentHash": "fdf797b1a822f08907dbde5c74c34fa7",
+      "sourceName": "contracts/ScamCertificateSBT.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "ScamCertificateSBT"
+      ]
+    },
+    "/Users/kiransureshjelugadekar/Downloads/scamverse360/blockchain/contracts/ScamThreatRegistry.sol": {
+      "lastModificationDate": 1788368539078,
+      "contentHash": "69f8fe4801cabefe7ab7c8a53a1918fb",
+      "sourceName": "contracts/ScamThreatRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.20"
+      ],
+      "artifacts": [
+        "ScamThreatRegistry"
+      ]
+    }
+  }
+}

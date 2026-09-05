@@ -1,0 +1,20 @@
+{
+  "name": "scamverse360-blockchain",
+  "version": "1.0.0",
+  "description": "SCAMVERSE 360 - ScamThreatRegistry smart contract (Phase 4)",
+  "scripts": {
+    "start": "hardhat node",
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy:localhost": "hardhat run scripts/deploy.js --network localhost",
+    "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

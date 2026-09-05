@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Environment variables & API keys (Protects Gemini & DB keys)
+.env
+.env.*
+*.env
+backend/.env
+frontend/.env
+!.env.example
+!backend/.env.example
+
+# Build outputs
+dist/
+build/
+*/dist/
+
+# Logs & OS files
+*.log
+.DS_Store
+*/.DS_Store
+
+# Uploaded evidence / local storage
+backend/secure-evidence-store/
+secure-evidence-store/

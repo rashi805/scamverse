@@ -1,0 +1,31 @@
+{
+  "name": "scamverse360-backend",
+  "version": "1.0.0",
+  "description": "SCAMVERSE 360 backend - scam awareness & simulation API (Phase 1 MVP)",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node src/data/seedScenarios.js",
+    "seed:hi": "node src/data/seedScenariosHi.js",
+    "seed:mr": "node src/data/seedScenariosMr.js",
+    "seed:all": "npm run seed && npm run seed:hi && npm run seed:mr"
+  },
+
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ethers": "^6.13.1",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.0",
+    "mongoose": "^8.5.0",
+    "helmet": "^7.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
